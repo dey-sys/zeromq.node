@@ -417,6 +417,7 @@ namespace zmq {
       case ZMQ_LINGER:
       case ZMQ_RECONNECT_IVL:
       case ZMQ_BACKLOG:
+      case ZMQ_IPV4ONLY:
         return socket->GetSockOpt<int>(option);
       case ZMQ_SUBSCRIBE:
       case ZMQ_UNSUBSCRIBE:
@@ -459,6 +460,7 @@ namespace zmq {
       case ZMQ_LINGER:
       case ZMQ_RECONNECT_IVL:
       case ZMQ_BACKLOG:
+      case ZMQ_IPV4ONLY:
         return socket->SetSockOpt<int>(option, args[1]);
       case ZMQ_RCVMORE:
       case ZMQ_EVENTS:
@@ -899,6 +901,8 @@ namespace zmq {
     NODE_DEFINE_CONSTANT(target, ZMQ_POLLIN);
     NODE_DEFINE_CONSTANT(target, ZMQ_POLLOUT);
     NODE_DEFINE_CONSTANT(target, ZMQ_POLLERR);
+
+    NODE_DEFINE_CONSTANT(target, ZMQ_IPV4ONLY);
 
     NODE_DEFINE_CONSTANT(target, ZMQ_SNDMORE);
     #if ZMQ_VERSION_MAJOR == 2

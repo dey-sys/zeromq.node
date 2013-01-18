@@ -38,4 +38,9 @@ sock.close();
 
 sock = zmq.socket('req', { backlog: 30 });
 sock.backlog.should.equal(30);
+sock.setsockopt(zmq.ZMQ_IPV4ONLY, 0).should.equal(sock);
+sock.getsockopt(zmq.ZMQ_IPV4ONLY).should.equal(0);
+sock.setsockopt(zmq.ZMQ_IPV4ONLY, 1).should.equal(sock);
+sock.getsockopt(zmq.ZMQ_IPV4ONLY).should.equal(1);
+
 sock.close();
